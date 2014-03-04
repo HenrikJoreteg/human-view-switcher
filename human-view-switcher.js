@@ -10,6 +10,9 @@ function ViewSwitcher(el, options) {
         this.config[item] = options[item];
     }
     this.current = null;
+    if (options.view) {
+        this.set(options.view);
+    }
 }
 
 ViewSwitcher.prototype.set = function (view) {
@@ -29,6 +32,7 @@ ViewSwitcher.prototype.set = function (view) {
         this._hide(prev);
         this._show(current);
     }
+    return this;
 };
 
 ViewSwitcher.prototype._show = function (view, cb) {
